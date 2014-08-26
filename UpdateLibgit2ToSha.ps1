@@ -11,6 +11,8 @@
 	If set, run the libgit2 tests on the desired version.
 .PARAMETER debug
 	If set, build the "Debug" configuration of libgit2, rather than "RelWithDebInfo" (default).
+.PARAMETER ssh
+	If set, build with SSH enabled.
 #>
 
 Param(
@@ -18,7 +20,8 @@ Param(
 	[string]$vs = '10',
 	[string]$libgit2Name = '',
 	[switch]$test,
-	[switch]$debug
+	[switch]$debug,
+	[switch]$ssh
 )
 
 Set-StrictMode -Version Latest
@@ -33,7 +36,7 @@ $build_clar = 'OFF'
 if ($test.IsPresent) { $build_clar = 'ON' }
 $configuration = "RelWithDebInfo"
 if ($debug.IsPresent) { $configuration = "Debug" }
-
+if ($ssh.IsPresent) { $usessh = 'ON }
 function Run-Command([scriptblock]$Command, [switch]$Fatal, [switch]$Quiet) {
     $output = ""
     if ($Quiet) {
@@ -144,7 +147,7 @@ function Assert-Consistent-Naming($expected, $path) {
 	Run-Command -Quiet { & remove-item build -recurse -force }
 	Run-Command -Quiet { & mkdir build }
 	cd build
-	Run-Command -Quiet -Fatal { & $cmake -G "Visual Studio $vs" -D THREADSAFE=ON -D "BUILD_CLAR=$build_clar" -D "LIBGIT2_FILENAME=$binaryFilename" -DSTDCALL=ON .. }
+	Run-Command -Quiet -Fatal { & $cmake -G "Visual Studio $vs" -D THREADSAFE=ON -D "BUILD_CLAR=$build_clar" -D "LIBGIT2_FILENAME=$binaryFilename" -DSTDCALL=ON -D "USESSH=$usessh" .. }
 	Run-Command -Quiet -Fatal { & $cmake --build . --config $configuration }
 	if ($test.IsPresent) { Run-Command -Quiet -Fatal { & $ctest -V . } }
 	cd $configuration
