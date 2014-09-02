@@ -342,8 +342,8 @@ namespace LibGit2Sharp
 
         internal Signature BuildSignature(DateTimeOffset now, bool shouldThrowIfNotFound)
         {
-            string name = ConfigurationEntry<string>.ValueOrDefault(Get<string>("user.name"));
-            string email = ConfigurationEntry<string>.ValueOrDefault(Get<string>("user.email"));
+            string name = this.GetValueOrDefault<string>("user.name");
+            string email = this.GetValueOrDefault<string>("user.email");
 
             if (shouldThrowIfNotFound && (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email)))
             {
