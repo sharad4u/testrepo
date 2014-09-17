@@ -138,6 +138,9 @@
     <Compile Include="StageOptions.cs" />
     <Compile Include="StatusOptions.cs" />
     <Compile Include="SimilarityOptions.cs" />
+    <Compile Include="Trace.cs" />
+    <Compile Include="TraceConfiguration.cs" />
+    <Compile Include="TraceLevel.cs" />
     <Compile Include="UnbornBranchException.cs" />
     <Compile Include="LockedFileException.cs" />
     <Compile Include="Core\GitRepositoryInitOptions.cs" />

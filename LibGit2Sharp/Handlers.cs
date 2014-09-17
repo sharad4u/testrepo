@@ -111,4 +111,12 @@
         /// </summary>
         Deltafying
     }
+
+    /// <summary>
+    /// Delegate definition for tracing.  This callback will be used when
+    /// tracing occurs in libgit2.
+    /// </summary>
+    /// <param name="level">The level of the trace message.</param>
+    /// <param name="message">The trace message.</param>
+    public delegate void TraceHandler(TraceLevel level, string message);
 }

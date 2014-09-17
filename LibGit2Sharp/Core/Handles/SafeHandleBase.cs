@@ -35,11 +35,11 @@ namespace LibGit2Sharp.Core.Handles
         {
             if (!disposing && !IsInvalid)
             {
-                Trace.WriteLine(string.Format(CultureInfo.InvariantCulture, "A {0} handle wrapper has not been properly disposed.", GetType().Name));
+                System.Diagnostics.Trace.WriteLine(string.Format(CultureInfo.InvariantCulture, "A {0} handle wrapper has not been properly disposed.", GetType().Name));
 #if LEAKS
                 Trace.WriteLine(trace);
 #endif
-                Trace.WriteLine("");
+                System.Diagnostics.Trace.WriteLine("");
             }
 
             base.Dispose(disposing);

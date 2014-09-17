@@ -1,5 +1,6 @@
 ﻿using System;
 using LibGit2Sharp.Core;
+using LibGit2Sharp.Handlers;
 
 namespace LibGit2Sharp
 {
@@ -9,6 +10,8 @@ namespace LibGit2Sharp
     public static class GlobalSettings
     {
         private static readonly Lazy<Version> version = new Lazy<Version>(Version.Build);
+
+        private static TraceConfiguration traceConfiguration = TraceConfiguration.None;
 
         /// <summary>
         /// Returns all the optional features that were compiled into
@@ -83,6 +86,37 @@ namespace LibGit2Sharp
 
             Proxy.git_transport_unregister(registration.Scheme);
             registration.Free();
+        }
+
+        /// <summary>
+        /// Registers a new <see cref="TraceConfiguration"/> to receive
+        /// trace information from libgit2.
+        ///
+        /// Note that this configuration is global to an entire process
+        /// and does not honor application domains.
+        /// </summary>
+        public static TraceConfiguration TraceConfiguration
+        {
+            set
+            {
+                Ensure.ArgumentNotNull(value, "value");
+
+                traceConfiguration = value;
+
+                if (traceConfiguration.Level == TraceLevel.None)
+                {
+                    Proxy.git_trace_set(0, null);
+                }
+                else
+                {
+                    Proxy.git_trace_set(value.Level, value.GitTraceHandler);
+                }
+            }
+
+            get
+            {
+                return traceConfiguration;
+            }
         }
     }
 }
