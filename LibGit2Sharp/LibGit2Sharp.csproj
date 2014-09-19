@@ -83,6 +83,7 @@
     <Compile Include="Core\GitIndexReucEntry.cs" />
     <Compile Include="Core\Handles\IndexNameEntrySafeHandle.cs" />
     <Compile Include="Core\Handles\IndexReucEntrySafeHandle.cs" />
+    <Compile Include="Core\NullLogger.cs" />
     <Compile Include="EntryExistsException.cs" />
     <Compile Include="IBelongToARepository.cs" />
     <Compile Include="IndexNameEntryCollection.cs" />
@@ -138,8 +139,7 @@
     <Compile Include="StageOptions.cs" />
     <Compile Include="StatusOptions.cs" />
     <Compile Include="SimilarityOptions.cs" />
-    <Compile Include="Trace.cs" />
-    <Compile Include="TraceConfiguration.cs" />
+    <Compile Include="ILibGit2SharpLog.cs" />
     <Compile Include="TraceLevel.cs" />
     <Compile Include="UnbornBranchException.cs" />
     <Compile Include="LockedFileException.cs" />

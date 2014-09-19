@@ -1,6 +1,5 @@
 ﻿using System;
 using LibGit2Sharp.Core;
-using LibGit2Sharp.Handlers;
 
 namespace LibGit2Sharp
 {
@@ -11,7 +10,8 @@ namespace LibGit2Sharp
     {
         private static readonly Lazy<Version> version = new Lazy<Version>(Version.Build);
 
-        private static TraceConfiguration traceConfiguration = TraceConfiguration.None;
+        internal static ILibGit2SharpLog internalLogger = NullLogger.Instance;
+        internal static TraceLevel internalMaxTraceLevel = TraceLevel.None;
 
         /// <summary>
         /// Returns all the optional features that were compiled into
@@ -44,7 +44,7 @@ namespace LibGit2Sharp
         /// with the server This is not commonly
         /// used: some callers may want to re-use an existing connection to
         /// perform fetch / push operations to a remote.
-        /// 
+        ///
         /// Note that this configuration is global to an entire process
         /// and does not honor application domains.
         /// </summary>
@@ -88,34 +88,41 @@ namespace LibGit2Sharp
             registration.Free();
         }
 
-        /// <summary>
-        /// Registers a new <see cref="TraceConfiguration"/> to receive
-        /// trace information from libgit2.
-        ///
-        /// Note that this configuration is global to an entire process
-        /// and does not honor application domains.
-        /// </summary>
-        public static TraceConfiguration TraceConfiguration
+        public static void RegisterLogger(TraceLevel maxLevel, ILibGit2SharpLog logger)
         {
-            set
+            if (logger == null || maxLevel == TraceLevel.None)
             {
-                Ensure.ArgumentNotNull(value, "value");
-
-                traceConfiguration = value;
-
-                if (traceConfiguration.Level == TraceLevel.None)
-                {
-                    Proxy.git_trace_set(0, null);
-                }
-                else
-                {
-                    Proxy.git_trace_set(value.Level, value.GitTraceHandler);
-                }
+                // TODO: Threadsafe impl
+                internalLogger = NullLogger.Instance;
+                internalMaxTraceLevel = TraceLevel.None;
+                Proxy.git_trace_set(0, null);
             }
 
-            get
+            internalLogger = logger;
+            internalMaxTraceLevel = maxLevel;
+            Proxy.git_trace_set(maxLevel, t);
+        }
+
+        private static void t(TraceLevel level, IntPtr msg)
+        {
+            string message = LaxUtf8Marshaler.FromNative(msg);
+
+            switch (level)
             {
-                return traceConfiguration;
+                case TraceLevel.Debug:
+                    internalLogger.Debug(message);
+                    break;
+
+                case TraceLevel.Info:
+                    internalLogger.Info(message);
+                    break;
+
+                case TraceLevel.Error:
+                    internalLogger.Error(message);
+                    break;
+
+                default:
+                    throw new InvalidOperationException();
             }
         }
     }

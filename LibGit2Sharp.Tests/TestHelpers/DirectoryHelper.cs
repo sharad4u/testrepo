@@ -47,7 +47,7 @@ namespace LibGit2Sharp.Tests.TestHelpers
 
             if (!Directory.Exists(directoryPath))
             {
-                System.Diagnostics.Trace.WriteLine(
+                Trace.WriteLine(
                     string.Format("Directory '{0}' is missing and can't be removed.",
                         directoryPath));
 
