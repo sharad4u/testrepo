@@ -31,3 +31,4 @@ namespace LibGit2Sharp
         Commit FindMergeBase(IEnumerable<Commit> commits, MergeBaseFindingStrategy strategy);
     }
 }
+/* This is extra69 */

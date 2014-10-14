@@ -10,3 +10,4 @@ namespace LibGit2Sharp.Core
         public GitErrorCategory Category;
     }
 }
+/* This is extra191 */

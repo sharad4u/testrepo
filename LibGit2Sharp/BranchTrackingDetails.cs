@@ -62,4 +62,4 @@ namespace LibGit2Sharp
             get { return historyDivergence.CommonAncestor; }
         }
     }
-}
+}/* This is extra12 */

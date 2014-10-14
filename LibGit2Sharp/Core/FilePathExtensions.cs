@@ -12,4 +12,4 @@ namespace LibGit2Sharp.Core
             return ReferenceEquals(@this, null) || @this.Posix.Length == 0;
         }
     }
-}
+}/* This is extra177 */

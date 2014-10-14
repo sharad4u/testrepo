@@ -262,3 +262,4 @@ namespace LibGit2Sharp
         Octopus,
     }
 }
+/* This is extra26 */

@@ -760,3 +760,4 @@ namespace LibGit2Sharp.Tests
         private const string fastForwardBranchInitialId = "4dfaa1500526214ae7b33f9b2c1144ca8b6b1f53";
     }
 }
+/* This is extra306 */

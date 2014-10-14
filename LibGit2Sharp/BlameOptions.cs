@@ -62,3 +62,4 @@ namespace LibGit2Sharp
         public int MaxLine { get; set; }
     }
 }
+/* This is extra6 */

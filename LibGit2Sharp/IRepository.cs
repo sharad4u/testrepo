@@ -256,3 +256,4 @@ namespace LibGit2Sharp
         BlameHunkCollection Blame(string path, BlameOptions options);
     }
 }
+/* This is extra70 */

@@ -57,3 +57,4 @@ namespace LibGit2Sharp.Core
         GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE = (1 << 5),
     }
 }
+/* This is extra208 */

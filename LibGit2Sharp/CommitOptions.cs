@@ -48,3 +48,4 @@ namespace LibGit2Sharp
         public char? CommentaryChar { get; set; }
     }
 }
+/* This is extra27 */

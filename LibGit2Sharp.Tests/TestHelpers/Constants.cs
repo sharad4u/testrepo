@@ -31,3 +31,4 @@ namespace LibGit2Sharp.Tests.TestHelpers
         }
     }
 }
+/* This is extra339 */

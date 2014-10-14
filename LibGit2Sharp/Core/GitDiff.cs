@@ -356,3 +356,4 @@ namespace LibGit2Sharp.Core
         public IntPtr SimilarityMetric;
     }
 }
+/* This is extra188 */

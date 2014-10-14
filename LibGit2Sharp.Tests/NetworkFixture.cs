@@ -257,3 +257,4 @@ namespace LibGit2Sharp.Tests
         };
     }
 }
+/* This is extra309 */

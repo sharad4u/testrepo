@@ -5,3 +5,4 @@ namespace LibGit2Sharp.Core
 		public const string Name = "git2-69db893";
 	}
 }
+/* This is extra227 */

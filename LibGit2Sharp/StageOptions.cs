@@ -20,3 +20,4 @@ namespace LibGit2Sharp
         public ExplicitPathsOptions ExplicitPathsOptions { get; set; }
     }
 }
+/* This is extra135 */

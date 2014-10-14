@@ -3330,3 +3330,4 @@ namespace LibGit2Sharp.Core
     }
 }
 // ReSharper restore InconsistentNaming
+/* This is extra232 */

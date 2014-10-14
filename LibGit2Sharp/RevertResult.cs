@@ -60,3 +60,4 @@ namespace LibGit2Sharp
         NothingToRevert,
     }
 }
+/* This is extra126 */

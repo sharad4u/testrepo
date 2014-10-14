@@ -32,3 +32,4 @@ namespace LibGit2Sharp.Core
         Callback,
     }
 }
+/* This is extra192 */

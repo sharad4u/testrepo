@@ -9,3 +9,4 @@ namespace LibGit2Sharp.Core
         public int Offset;
     }
 }
+/* This is extra219 */

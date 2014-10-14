@@ -63,3 +63,4 @@ namespace LibGit2Sharp
         protected abstract void AddTreeEntry(string path, TreeEntry entry, DateTimeOffset modificationTime);
     }
 }
+/* This is extra2 */

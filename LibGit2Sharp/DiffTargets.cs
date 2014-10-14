@@ -18,4 +18,4 @@ namespace LibGit2Sharp
         /// </summary>
         WorkingDirectory = 2,
     }
-}
+}/* This is extra45 */

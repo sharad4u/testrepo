@@ -106,3 +106,4 @@ namespace LibGit2Sharp.Core
         GIT_MERGE_TREE_FIND_RENAMES = (1 << 0),
     }
 }
+/* This is extra198 */

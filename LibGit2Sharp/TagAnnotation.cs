@@ -52,3 +52,4 @@ namespace LibGit2Sharp
         public virtual Signature Tagger { get { return lazyTagger.Value; } }
     }
 }
+/* This is extra150 */

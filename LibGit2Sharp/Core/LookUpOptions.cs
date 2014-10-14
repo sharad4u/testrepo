@@ -11,3 +11,4 @@ namespace LibGit2Sharp.Core
         ThrowWhenCanNotBeDereferencedToACommit = 4,
     }
 }
+/* This is extra226 */

@@ -79,3 +79,4 @@ namespace LibGit2Sharp
         Ignored = (1 << 14), /* GIT_STATUS_IGNORED */
     }
 }
+/* This is extra52 */

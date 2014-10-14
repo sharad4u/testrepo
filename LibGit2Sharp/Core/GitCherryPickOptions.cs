@@ -16,3 +16,4 @@ namespace LibGit2Sharp.Core
         public GitCheckoutOpts CheckoutOpts = new GitCheckoutOpts { version = 1 };
     }
 }
+/* This is extra184 */

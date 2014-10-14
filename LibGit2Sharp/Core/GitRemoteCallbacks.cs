@@ -24,3 +24,4 @@ namespace LibGit2Sharp.Core
         internal IntPtr payload;
     }
 }
+/* This is extra206 */

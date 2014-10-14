@@ -11,3 +11,4 @@ namespace LibGit2Sharp.Core
         public uint level;
     }
 }
+/* This is extra186 */

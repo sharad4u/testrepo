@@ -42,3 +42,4 @@ namespace LibGit2Sharp
         Ignored = (1 << 4), /* GIT_CHECKOUT_NOTIFY_IGNORED */
     }
 }
+/* This is extra19 */

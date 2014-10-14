@@ -20,3 +20,4 @@ namespace LibGit2Sharp
         Force,
     }
 }
+/* This is extra18 */

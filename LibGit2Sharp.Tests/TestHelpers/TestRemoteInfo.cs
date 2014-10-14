@@ -66,3 +66,4 @@ namespace LibGit2Sharp.Tests.TestHelpers
         #endregion
     }
 }
+/* This is extra347 */
